@@ -4,10 +4,8 @@
 
 package com.asa.listview;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
     public String[] provinsi = new String[]{"Aceh", "Sumatera Utara", "Sumatera Barat", "Riau", "Jambi",
             "Sumatera Selatan", "Bengkulu", "Lampung", "Bangka Belitung", "Kepulauan Riau",
             "Jakarta", "Jawa Barat", "Jawa Tengah", "Yogyakarta", "Jawa Timur",
@@ -32,11 +30,11 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         Button btnClick = (Button)findViewById(R.id.btnClick);
         final ListView listView = (ListView)findViewById(R.id.listView);
-        List<String> listPrivinsi = new ArrayList<>();
+        List<String> listPrivinsi = new ArrayList<String>();
         for(int x = 0; x < provinsi.length; x++){
             listPrivinsi.add(provinsi[x]);
         }
-        final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listPrivinsi);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,listPrivinsi);
         btnClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
